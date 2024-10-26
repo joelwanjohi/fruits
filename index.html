@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .category-title {
+    font-size: 32px;                    
+    font-weight: bold;                   
+    margin: 30px 0 20px;                
+    color: #FF5733;                      
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+    letter-spacing: 1px;                 
+    background-color: #F9F9F9;           
+    padding: 10px;                       
+    border-radius: 5px;                  
+    text-transform: uppercase;            
+    text-align: center;                  
+}
+
+
+        .carousel-container {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 0 40px; 
+        }
+
+        .product-row {
+            display: flex;
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
+            gap: 35px;
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+        }
+
+        .product-row::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .product-card {
+            min-width: calc(50% - 10px); 
+            flex: 0 0 calc(50% - 10px);
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+    max-width: 100%;  
+    max-height: 255px; 
+    object-fit: cover;  
+    margin-bottom: 10px; 
+    border-radius: 4px;  
+}
+
+
+        .product-category {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+    font-weight: bold;                
+    margin-bottom: 5px;              
+    font-size: 20px;                 
+    color: #2C3E50;                  
+}
+
+.product-price {
+    color: black;                  
+    font-weight: bold;              
+    font-size: 22px;                 
+}
+
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .nav-arrow:hover {
+            background: #34e708;
+        }
+
+        .nav-arrow.left {
+            left: 0;
+        }
+
+        .nav-arrow.right {
+            right: 0;
+        }
+
+        .nav-arrow.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tropical Fruits Section -->
+        <h2 class="category-title">Tropical Fruits</h2>
+        <div class="carousel-container" id="tropical-container">
+            <button class="nav-arrow left" onclick="scrollCarousel('tropical', -1)">←</button>
+            <button class="nav-arrow right" onclick="scrollCarousel('tropical', 1)">→</button>
+            <div class="product-row" id="tropical-row">
+                <div class="product-card">
+                    <img src="assets/fresh mango.jpg" alt="Mango" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Fresh Mango</div>
+                    <div class="product-price">Sh50.00/kg</div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/pineapple.jpg" alt="Pineapple" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Sweet Pineapple</div>
+                    <div class="product-price">Sh20.00/piece</div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/Ripe Papaya.jpeg" alt="Papaya" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Ripe Papaya</div>
+                    <div class="product-price">Sh60.00/kg</div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/Dragon Fruit.jpg" alt="Dragon Fruit" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Dragon Fruit</div>
+                    <div class="product-price">Sh70.50/piece</div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/Passion Fruit.jpg" alt="Passion Fruit" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Passion Fruit</div>
+                    <div class="product-price">Sh80.00/kg</div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/Fresh Guava.jpeg" alt="Guava" class="product-image">
+                    <div class="product-category">Tropical Fruits</div>
+                    <div class="product-name">Fresh Guava</div>
+                    <div class="product-price">Sh40.00/kg</div>
+                </div>
+            </div>
+        </div>
+
+       <!-- Citrus Fruits Section -->
+<h2 class="category-title">Citrus Fruits</h2>
+<div class="carousel-container" id="citrus-container">
+    <button class="nav-arrow left" onclick="scrollCarousel('citrus', -1)">←</button>
+    <button class="nav-arrow right" onclick="scrollCarousel('citrus', 1)">→</button>
+    <div class="product-row" id="citrus-row">
+        <div class="product-card">
+            <img src="assets/fresh orange.jpg" alt="Orange" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Oranges</div>
+            <div class="product-price">Sh30.00/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/lemon.jpg" alt="Lemon" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Lemons</div>
+            <div class="product-price">Sh40.50/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Fresh Limes.jpg" alt="Lime" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Limes</div>
+            <div class="product-price">Sh40.80/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Fresh Grapefruits.jpeg" alt="Grapefruit" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Grapefruits</div>
+            <div class="product-price">Sh70.20/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Fresh Tangerines.jpg" alt="Tangerine" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Tangerines</div>
+            <div class="product-price">Sh60.10/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/clementine.jpg" alt="Clementine" class="product-image">
+            <div class="product-category">Citrus Fruits</div>
+            <div class="product-name">Fresh Clementines</div>
+            <div class="product-price">Sh60.40/kg</div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Best Selling Fruits Section -->
+<h2 class="category-title">Best Selling Fruits</h2>
+<div class="carousel-container" id="bestseller-container">
+    <button class="nav-arrow left" onclick="scrollCarousel('bestseller', -1)">←</button>
+    <button class="nav-arrow right" onclick="scrollCarousel('bestseller', 1)">→</button>
+    <div class="product-row" id="bestseller-row">
+        <div class="product-card">
+            <img src="assets/red-apples.jpg" alt="Apple" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Red Apples</div>
+            <div class="product-price">Sh40.50/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Banana1.png" alt="Banana" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Ripe Bananas</div>
+            <div class="product-price">Sh50.00/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Fresh Strawberries.jpeg" alt="Strawberry" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Fresh Strawberries</div>
+            <div class="product-price">Sh40.00/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Juicy Peaches.jpg" alt="Peach" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Juicy Peaches</div>
+            <div class="product-price">Sh30.80/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Sweet Grapes.jpeg" alt="Grapes" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Sweet Grapes</div>
+            <div class="product-price">Sh30.60/kg</div>
+        </div>
+        <div class="product-card">
+            <img src="assets/Ripe Watermelon.jpg" alt="Watermelon" class="product-image">
+            <div class="product-category">Best Sellers</div>
+            <div class="product-name">Ripe Watermelon</div>
+            <div class="product-price">Sh100.50/kg</div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        function scrollCarousel(category, direction) {
+            const row = document.getElementById(`${category}-row`);
+            const cardWidth = row.querySelector('.product-card').offsetWidth;
+            const scrollAmount = (cardWidth + 20) * 2; 
+            
+            row.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+
+            // Update arrow visibility after scroll
+            setTimeout(() => updateArrows(category), 500);
+        }
+
+        function updateArrows(category) {
+            const row = document.getElementById(`${category}-row`);
+            const container = document.getElementById(`${category}-container`);
+            const leftArrow = container.querySelector('.nav-arrow.left');
+            const rightArrow = container.querySelector('.nav-arrow.right');
+
+            // Show/hide left arrow based on scroll position
+            leftArrow.classList.toggle('hidden', row.scrollLeft <= 0);
+
+            // Show/hide right arrow based on whether we can scroll further right
+            const maxScroll = row.scrollWidth - row.clientWidth;
+            rightArrow.classList.toggle('hidden', Math.ceil(row.scrollLeft) >= maxScroll);
+        }
+
+        // Initialize arrow visibility for all carousels
+        document.addEventListener('DOMContentLoaded', () => {
+            ['tropical', 'citrus', 'bestseller'].forEach(category => {
+                updateArrows(category);
+            });
+        });
+
+        // Update arrows on window resize
+        window.addEventListener('resize', () => {
+            ['tropical', 'citrus', 'bestseller'].forEach(category => {
+                updateArrows(category);
+            });
+        });
+    </script>
+</body>
+</html>
