@@ -61,6 +61,12 @@
             transition: all 0.3s ease;
             background: #fff;
         }
+        @media (min-width: 768px) {
+            .product-card {
+                min-width: calc(50% - 10px);
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
 
         .product-card:hover {
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -73,6 +79,12 @@
     margin-bottom: 10px; 
     border-radius: 4px;  
 }
+
+@media (min-width: 768px) {
+            .product-image {
+                height: 255px;
+            }
+        }
 
 
         .product-category {
@@ -111,6 +123,14 @@
             justify-content: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             font-size: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
         }
 
         .nav-arrow:hover {
